@@ -1,5 +1,3 @@
-using Application.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,18 +6,12 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddScoped<ProductoService, ProductoService>(); //Agrego a la bolsa de servicios el servicio de productos para que pueda ser inyectado en el controlador
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/openapi/v1.json", "My API V1");
-    });
 }
 
 app.UseHttpsRedirection();
