@@ -6,6 +6,8 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddScoped<ProductoService, ProductoService>(); //Agrego a la bolsa de servicios el servicio de productos para que pueda ser inyectado en el controlador
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
